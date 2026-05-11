@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi página</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #0f172a;
+      --card: rgba(255,255,255,0.1);
+      --text: #f8fafc;
+      --accent: #38bdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a, #0ea5e9);
+      color: var(--text);
+    }
+    .card {
+      width: min(680px, 92vw);
+      padding: 40px;
+      border-radius: 24px;
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      text-align: center;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+    p {
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    strong { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Hola 👋</h1>
+    <p>Esta es la nueva página web de <strong>azriela</strong>, publicada con GitHub Pages.</p>
+  </main>
+</body>
+</html>
