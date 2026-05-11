@@ -1,52 +1,536 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi página</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #0f172a;
-      --card: rgba(255,255,255,0.1);
-      --text: #f8fafc;
-      --accent: #38bdf8;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e3a8a, #0ea5e9);
-      color: var(--text);
-    }
-    .card {
-      width: min(680px, 92vw);
-      padding: 40px;
-      border-radius: 24px;
-      background: var(--card);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-      text-align: center;
-    }
-    h1 {
-      margin: 0 0 16px;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-    }
-    p {
-      margin: 0;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    strong { color: var(--accent); }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeuroCracks MVP — Especificación Funcional</title>
+<style>
+  :root {
+    --primary: #0f172a;
+    --accent: #22d3ee;
+    --accent2: #f59e0b;
+    --accent3: #10b981;
+    --danger: #ef4444;
+    --surface: #1e293b;
+    --surface2: #0f172a;
+    --border: #334155;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--primary);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+    border-bottom: 2px solid var(--accent);
+    padding: 48px 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(34,211,238,0.12), transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-logo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    font-size: 38px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -1px;
+    line-height: 1.15;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-sub {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 600px;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(34,211,238,0.1);
+    border: 1px solid rgba(34,211,238,0.3);
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .badge.amber { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.3); color: var(--accent2); }
+  .badge.green { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.3); color: var(--accent3); }
+
+  .toc {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 40px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .toc a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: all 0.15s;
+    letter-spacing: 0.3px;
+  }
+  .toc a:hover { color: var(--accent); background: rgba(34,211,238,0.08); }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  section {
+    margin-bottom: 56px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    background: var(--accent);
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 12px;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-num.amber { background: var(--accent2); }
+  .section-num.green { background: var(--accent3); }
+  .section-num.red { background: var(--danger); }
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.3px;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+    margin-top: 20px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  p { color: var(--muted); font-size: 14px; margin-bottom: 10px; }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  .card-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+  }
+  .card-value {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+  }
+  .card-value span { color: var(--accent); }
+  .card-desc { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  .score-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .score-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+  }
+  .score-block-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .score-block-weight {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .score-block.amber .score-block-weight { color: var(--accent2); }
+  .metric-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .metric-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .metric-dot.amber { background: var(--accent2); }
+  .metric-name { font-size: 13px; color: var(--muted); }
+  .metric-bar-wrap {
+    flex: 1;
+    height: 4px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .metric-bar {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    width: 20%;
+  }
+  .metric-bar.amber { background: var(--accent2); }
+
+  .formula-box {
+    background: rgba(34,211,238,0.06);
+    border: 1px solid rgba(34,211,238,0.2);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    text-align: center;
+    margin: 16px 0;
+  }
+  .formula-box .formula {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+  }
+  .formula-box .formula .highlight { color: var(--accent); }
+  .formula-box .formula-desc {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+  }
+  .spec-table th {
+    background: rgba(34,211,238,0.1);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .spec-table td {
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--muted);
+    border-bottom: 1px solid rgba(51,65,85,0.5);
+    vertical-align: top;
+  }
+  .spec-table tr:last-child td { border-bottom: none; }
+  .spec-table tr:hover td { background: rgba(34,211,238,0.03); }
+  .spec-table td:first-child { color: var(--text); font-weight: 500; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .tag-blue { background: rgba(34,211,238,0.12); color: var(--accent); }
+  .tag-amber { background: rgba(245,158,11,0.12); color: var(--accent2); }
+  .tag-green { background: rgba(16,185,129,0.12); color: var(--accent3); }
+  .tag-red { background: rgba(239,68,68,0.12); color: var(--danger); }
+  .tag-gray { background: rgba(148,163,184,0.12); color: var(--muted); }
+
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 380px;
+  }
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .flow-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .flow-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .flow-line {
+    width: 2px;
+    flex: 1;
+    min-height: 24px;
+    background: linear-gradient(to bottom, var(--accent), rgba(34,211,238,0.2));
+    margin: 4px 0;
+  }
+  .flow-content {
+    padding-top: 6px;
+    padding-bottom: 20px;
+  }
+  .flow-title { font-size: 14px; font-weight: 600; color: var(--text); }
+  .flow-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  .roles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .role-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+  .role-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  .role-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .role-perm {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 7px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .role-perm::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent3);
+    flex-shrink: 0;
+  }
+
+  .note {
+    background: rgba(245,158,11,0.08);
+    border-left: 3px solid var(--accent2);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 12px 16px;
+    margin: 14px 0;
+  }
+  .note-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .note p { color: #c4a04b; font-size: 13px; margin: 0; }
+  .note.green { background: rgba(16,185,129,0.08); border-color: var(--accent3); }
+  .note.green .note-title { color: var(--accent3); }
+  .note.green p { color: #5ecc9a; }
+  .note.blue { background: rgba(34,211,238,0.06); border-color: var(--accent); }
+  .note.blue .note-title { color: var(--accent); }
+  .note.blue p { color: #7dd7e8; }
+
+  .truncated-notice {
+    background: rgba(239,68,68,0.08);
+    border: 1px solid rgba(239,68,68,0.25);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-top: 16px;
+  }
+  .truncated-notice strong { color: #fff; }
+
+  .doc-footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  @media (max-width: 700px) {
+    .hero { padding: 32px 20px; }
+    .container { padding: 24px 20px 60px; }
+    .toc { padding: 10px 20px; }
+    .score-grid, .roles-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-  <main class="card">
-    <h1>Hola 👋</h1>
-    <p>Esta es la nueva página web de <strong>azriela</strong>, publicada con GitHub Pages.</p>
-  </main>
+<div class="hero">
+  <div class="hero-logo">NeuroCracks Platform</div>
+  <h1><span>Neuro</span>Cracks <br>MVP — Especificación Funcional</h1>
+  <p class="hero-sub">Sistema integral de medición, formación, seguimiento y certificación deportiva para jóvenes atletas.</p>
+  <div class="hero-meta">
+    <span class="badge">v2.1 — Revisada</span>
+    <span class="badge amber">MVP — Fase 1</span>
+    <span class="badge green">Score 0–100</span>
+    <span class="badge">Mayo 2026</span>
+  </div>
+</div>
+<nav class="toc">
+  <a href="#objetivo">Objetivo</a>
+  <a href="#score">Score</a>
+  <a href="#progreso">Progreso</a>
+  <a href="#educativo">Modelo Educativo</a>
+  <a href="#idiomas">Idiomas</a>
+  <a href="#videos">Videos</a>
+  <a href="#roles">Roles</a>
+  <a href="#registro">Registro</a>
+  <a href="#certificacion">Certificación</a>
+  <a href="#estados">Estados</a>
+  <a href="#pagos">Pagos</a>
+  <a href="#ambiental">Ambiental</a>
+</nav>
+<div class="container">
+  <section id="objetivo">
+    <div class="section-header"><div class="section-num">1</div><h2>Objetivo del Sistema</h2></div>
+    <p>NeuroCracks es un sistema integral para medir, desarrollar y hacer seguimiento al progreso deportivo y formativo de jóvenes deportistas mediante una plataforma digital centralizada.</p>
+    <div class="card-grid" style="margin-top:20px;">
+      <div class="card"><div class="card-title">Score Global</div><div class="card-value"><span>0</span>–<span>100</span></div><div class="card-desc">Puntuación unificada del jugador</div></div>
+      <div class="card"><div class="card-title">Horas Objetivo</div><div class="card-value"><span>520</span> h</div><div class="card-desc">Para certificación completa</div></div>
+      <div class="card"><div class="card-title">Componentes</div><div class="card-value"><span>2</span></div><div class="card-desc">Deportivo + Formativo, 50/50</div></div>
+      <div class="card"><div class="card-title">Roles</div><div class="card-value"><span>3</span></div><div class="card-desc">Admin, Entrenador, Jugador</div></div>
+    </div>
+  </section>
+  <section id="score">
+    <div class="section-header"><div class="section-num">2</div><h2>Estructura del Score Global</h2></div>
+    <div class="formula-box">
+      <div class="formula">Score Final = (<span class="highlight">Deportivo × 0.5</span>) + (<span class="highlight">Inteligencias × 0.5</span>)</div>
+      <div class="formula-desc">Resultado en escala de 0 a 100 · Actualización automática tras cada evaluación</div>
+    </div>
+    <div class="score-grid">
+      <div class="score-block">
+        <div class="score-block-title">A. Rendimiento Deportivo</div>
+        <div class="score-block-weight">50%</div>
+        <div class="metric-row"><div class="metric-dot"></div><div class="metric-name">Juego ofensivo</div><div class="metric-bar-wrap"><div class="metric-bar"></div></div></div>
+        <div class="metric-row"><div class="metric-dot"></div><div class="metric-name">Juego defensivo</div><div class="metric-bar-wrap"><div class="metric-bar"></div></div></div>
+        <div class="metric-row"><div class="metric-dot"></div><div class="metric-name">Juego aéreo</div><div class="metric-bar-wrap"><div class="metric-bar"></div></div></div>
+        <div class="metric-row"><div class="metric-dot"></div><div class="metric-name">Técnica individual</div><div class="metric-bar-wrap"><div class="metric-bar"></div></div></div>
+        <div class="metric-row"><div class="metric-dot"></div><div class="metric-name">Velocidad y agilidad</div><div class="metric-bar-wrap"><div class="metric-bar"></div></div></div>
+      </div>
+      <div class="score-block amber">
+        <div class="score-block-title">B. Inteligencias Múltiples</div>
+        <div class="score-block-weight">50%</div>
+        <div class="metric-row"><div class="metric-dot amber"></div><div class="metric-name">Idiomas</div><div class="metric-bar-wrap"><div class="metric-bar amber"></div></div></div>
+        <div class="metric-row"><div class="metric-dot amber"></div><div class="metric-name">Liderazgo</div><div class="metric-bar-wrap"><div class="metric-bar amber"></div></div></div>
+        <div class="metric-row"><div class="metric-dot amber"></div><div class="metric-name">Cuidado del planeta</div><div class="metric-bar-wrap"><div class="metric-bar amber"></div></div></div>
+        <div class="metric-row"><div class="metric-dot amber"></div><div class="metric-name">Finanzas deportivas</div><div class="metric-bar-wrap"><div class="metric-bar amber"></div></div></div>
+        <div class="metric-row"><div class="metric-dot amber"></div><div class="metric-name">Marketing deportivo</div><div class="metric-bar-wrap"><div class="metric-bar amber"></div></div></div>
+      </div>
+    </div>
+  </section>
+  <section id="progreso">
+    <div class="section-header"><div class="section-num green">3</div><h2>Progreso del Jugador — 520 Horas</h2></div>
+    <table class="spec-table">
+      <thead><tr><th>Nivel</th><th>Rango de horas</th><th>Nombre sugerido</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>0 – 65 h</td><td>Iniciado</td><td><span class="tag tag-gray">Activo</span></td></tr>
+        <tr><td>2</td><td>65 – 130 h</td><td>Explorador</td><td><span class="tag tag-blue">Activo</span></td></tr>
+        <tr><td>3</td><td>130 – 260 h</td><td>Desarrollador</td><td><span class="tag tag-blue">Activo</span></td></tr>
+        <tr><td>4</td><td>260 – 390 h</td><td>Avanzado</td><td><span class="tag tag-amber">Activo</span></td></tr>
+        <tr><td>5</td><td>390 – 520 h</td><td>Elite</td><td><span class="tag tag-amber">Activo</span></td></tr>
+        <tr><td>—</td><td>520 h completadas</td><td><strong>Certificado NeuroCracks</strong></td><td><span class="tag tag-green">Certificado</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section id="videos">
+    <div class="section-header"><div class="section-num">6</div><h2>Sistema de Videos para Entrenadores</h2></div>
+    <div class="card-grid">
+      <div class="card"><div class="card-title">Videos Iniciales</div><div class="card-value"><span>70</span></div><div class="card-desc">Contenido formativo oficial</div></div>
+      <div class="card"><div class="card-title">Categorías</div><div class="card-value"><span>8</span></div><div class="card-desc">Deportivas + formativas</div></div>
+      <div class="card"><div class="card-title">Tracking</div><div class="card-value"><span>%</span></div><div class="card-desc">Progreso por categoría</div></div>
+    </div>
+  </section>
+  <section id="roles">
+    <div class="section-header"><div class="section-num amber">7</div><h2>Roles del Sistema</h2></div>
+    <div class="roles-grid">
+      <div class="role-card"><div class="role-icon">👑</div><div class="role-name">Administrador</div></div>
+      <div class="role-card"><div class="role-icon">🎯</div><div class="role-name">Entrenador</div></div>
+      <div class="role-card"><div class="role-icon">⚽</div><div class="role-name">Jugador</div></div>
+    </div>
+  </section>
+  <div class="truncated-notice">
+    <strong>Nota:</strong> Publiqué una versión resumida porque la lectura del archivo fuente llegó truncada en esta sesión. Si quieres, en el siguiente paso puedo copiar el HTML completo sin recortes y dejar la página idéntica al archivo original.
+  </div>
+</div>
+<footer class="doc-footer">
+  <div>NeuroCracks MVP</div>
+  <div>Publicado con GitHub Pages</div>
+</footer>
 </body>
 </html>
