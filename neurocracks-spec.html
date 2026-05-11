@@ -786,23 +786,23 @@
       <h2>Sistema de Idiomas e Internacionalización</h2>
     </div>
 
-    <table class="spec-table">
+    <div class="note" style="margin-top:0;">
+      <div class="note-title">Estado: No aplica en MVP — Fase 2 o 3</div>
+      <p>La internacionalización completa (selector de idioma, claves i18n, contenido multiidioma, adaptación regional) queda fuera del alcance del MVP. La plataforma operará únicamente en <strong>español</strong> en la Fase 1.</p>
+    </div>
+
+    <table class="spec-table" style="margin-top:12px;">
       <thead>
-        <tr><th>Función</th><th>MVP (Fase 1)</th><th>Fase 2+</th></tr>
+        <tr><th>Función</th><th>MVP (Fase 1)</th><th>Fase 2 / 3</th></tr>
       </thead>
       <tbody>
-        <tr><td>Idioma de la interfaz</td><td><span class="tag tag-green">Español</span></td><td>EN, PT, FR</td></tr>
-        <tr><td>Selector de idioma visible</td><td><span class="tag tag-gray">No</span></td><td><span class="tag tag-green">✓</span></td></tr>
-        <tr><td>Claves de traducción (i18n)</td><td><span class="tag tag-amber">Arquitectura lista</span></td><td>Contenido traducido</td></tr>
-        <tr><td>Contenido de videos multiidioma</td><td>Solo inglés (narración)</td><td>Doblaje / subtítulos</td></tr>
-        <tr><td>Adaptación regional (moneda, fecha)</td><td><span class="tag tag-gray">No</span></td><td><span class="tag tag-amber">Fase 2</span></td></tr>
+        <tr><td>Idioma de la interfaz</td><td><span class="tag tag-green">Español únicamente</span></td><td>EN, PT, FR</td></tr>
+        <tr><td>Selector de idioma visible</td><td><span class="tag tag-gray">No — Fase 2/3</span></td><td><span class="tag tag-green">✓</span></td></tr>
+        <tr><td>Claves de traducción (i18n)</td><td><span class="tag tag-gray">No — Fase 2/3</span></td><td>Arquitectura + contenido</td></tr>
+        <tr><td>Contenido de videos multiidioma</td><td><span class="tag tag-gray">No — Fase 2/3</span></td><td>Doblaje / subtítulos</td></tr>
+        <tr><td>Adaptación regional (moneda, fecha)</td><td><span class="tag tag-gray">No — Fase 2/3</span></td><td><span class="tag tag-amber">Fase 3</span></td></tr>
       </tbody>
     </table>
-
-    <div class="note blue" style="margin-top:12px;">
-      <div class="note-title">Decisión arquitectónica clave</div>
-      <p>Todo el texto de la UI debe pasar por un sistema de claves (i18n) desde el día 1. Hardcodear strings en español implica reescribir el frontend completo para internacionalizar. Costo de hacerlo bien al inicio: ~2 días. Costo de remediarlo después: semanas.</p>
-    </div>
   </section>
 
   <!-- 6. VIDEOS ENTRENADORES -->
@@ -841,17 +841,23 @@
       <div class="video-cat"><div class="video-cat-icon">🔬</div><div><div class="video-cat-name">Metodología NeuroCracks</div><div class="video-cat-count">~8 videos</div></div></div>
     </div>
 
-    <h3 style="margin-top:20px;">Funcionalidades requeridas</h3>
+    <div class="note blue" style="margin-top:16px;">
+      <div class="note-title">Gestión de contenido — Solo el Administrador sube videos</div>
+      <p>Los videos formativos son cargados exclusivamente por el <strong>Administrador</strong> a través del panel de gestión de contenido. Los entrenadores solo consumen el contenido disponible; no tienen permisos de subida ni edición.</p>
+    </div>
+
+    <h3 style="margin-top:16px;">Funcionalidades requeridas</h3>
     <table class="spec-table">
       <thead>
-        <tr><th>Función</th><th>Detalle</th><th>Prioridad</th></tr>
+        <tr><th>Función</th><th>Quién</th><th>Detalle</th><th>Prioridad</th></tr>
       </thead>
       <tbody>
-        <tr><td>Reproducción de videos</td><td>Player embebido (YouTube / Vimeo / nativo)</td><td><span class="tag tag-red">Alta</span></td></tr>
-        <tr><td>Progreso por categoría</td><td>Barra % de videos vistos por bloque temático</td><td><span class="tag tag-red">Alta</span></td></tr>
-        <tr><td>Estado completado / pendiente</td><td>Marca visual en cada video</td><td><span class="tag tag-red">Alta</span></td></tr>
-        <tr><td>Certificado de entrenador</td><td>Al completar el 100% de una categoría</td><td><span class="tag tag-amber">Media</span></td></tr>
-        <tr><td>Notas personales</td><td>Campo de texto por video para el entrenador</td><td><span class="tag tag-gray">Baja</span></td></tr>
+        <tr><td>Subir / gestionar videos</td><td><span class="tag tag-amber">Solo Admin</span></td><td>Panel de carga, título, categoría, descripción</td><td><span class="tag tag-red">Alta</span></td></tr>
+        <tr><td>Reproducción de videos</td><td><span class="tag tag-blue">Entrenador</span></td><td>Player embebido (YouTube / Vimeo / nativo)</td><td><span class="tag tag-red">Alta</span></td></tr>
+        <tr><td>Progreso por categoría</td><td><span class="tag tag-blue">Entrenador</span></td><td>Barra % de videos vistos por bloque temático</td><td><span class="tag tag-red">Alta</span></td></tr>
+        <tr><td>Estado completado / pendiente</td><td><span class="tag tag-blue">Entrenador</span></td><td>Marca visual en cada video</td><td><span class="tag tag-red">Alta</span></td></tr>
+        <tr><td>Certificado de entrenador</td><td><span class="tag tag-blue">Entrenador</span></td><td>Al completar el 100% de una categoría</td><td><span class="tag tag-amber">Media</span></td></tr>
+        <tr><td>Notas personales</td><td><span class="tag tag-blue">Entrenador</span></td><td>Campo de texto por video</td><td><span class="tag tag-gray">Baja</span></td></tr>
       </tbody>
     </table>
   </section>
@@ -982,7 +988,7 @@
 
     <div class="note" style="margin-top:12px;">
       <div class="note-title">Mejora sugerida — Score mínimo de certificación</div>
-      <p>Definir un score mínimo (sugerido: 60/100) para certificar. Esto da valor real al certificado y motiva al jugador a desarrollarse íntegramente, no solo acumular horas.</p>
+      <p>El score mínimo para certificar es <strong>70/100</strong>. Esto garantiza un nivel de calidad real en el certificado y motiva al jugador a desarrollarse íntegramente, no solo acumular horas.</p>
     </div>
   </section>
 
@@ -1060,7 +1066,7 @@
       </thead>
       <tbody>
         <tr><td>Registro de botellas PET</td><td>Entrenador registra unidades recolectadas por sesión o por club</td><td>Cantidad, fecha, club, entrenador</td></tr>
-        <tr><td>Ranking de clubes</td><td>Tabla comparativa de clubes por impacto ambiental acumulado</td><td>Total PET por club, período</td></tr>
+        <tr><td>Ranking de clubes</td><td>Tabla comparativa de clubes por impacto ambiental acumulado — <strong>alcance: por club</strong></td><td>Total PET por club, período</td></tr>
         <tr><td>Score ambiental (futuro)</td><td>Módulo que suma al sub-score "Cuidado del planeta"</td><td>Participación en acciones</td></tr>
         <tr><td>Reporte de impacto</td><td>Dashboard con métricas globales de sostenibilidad</td><td>Agregado de todos los clubes</td></tr>
       </tbody>
@@ -1387,7 +1393,7 @@
           <div class="flow-step"><div class="flow-left"><div class="flow-circle">5</div><div class="flow-line"></div></div><div class="flow-content"><div class="flow-title">Sistema calcula score automático</div><div class="flow-desc">Actualiza Score Global, sub-scores y horas</div></div></div>
           <div class="flow-step"><div class="flow-left"><div class="flow-circle">6</div><div class="flow-line"></div></div><div class="flow-content"><div class="flow-title">Jugador ve su progreso</div><div class="flow-desc">Dashboard actualizado en tiempo real</div></div></div>
           <div class="flow-step"><div class="flow-left"><div class="flow-circle">7</div><div class="flow-line"></div></div><div class="flow-content"><div class="flow-title">Sistema registra historial</div><div class="flow-desc">Cada sesión queda permanentemente guardada</div></div></div>
-          <div class="flow-step"><div class="flow-left"><div class="flow-circle" style="border-color:var(--accent3);color:var(--accent3);">✓</div></div><div class="flow-content"><div class="flow-title" style="color:var(--accent3);">Jugador obtiene certificación</div><div class="flow-desc">Al completar 520 h + score ≥ 60</div></div></div>
+          <div class="flow-step"><div class="flow-left"><div class="flow-circle" style="border-color:var(--accent3);color:var(--accent3);">✓</div></div><div class="flow-content"><div class="flow-title" style="color:var(--accent3);">Jugador obtiene certificación</div><div class="flow-desc">Al completar 520 h + score ≥ 70</div></div></div>
         </div>
       </div>
       <div>
@@ -1395,7 +1401,7 @@
         <table class="spec-table">
           <thead><tr><th>Punto</th><th>Recomendación</th></tr></thead>
           <tbody>
-            <tr><td>Calificación rápida</td><td>Sliders 1–10 por pantalla, no formularios largos. Máx. 3 min por evaluación</td></tr>
+            <tr><td>Calificación rápida</td><td><strong>Sliders 1–10 por pantalla</strong>, no formularios largos. Máx. 3 min por evaluación. El entrenador califica desde su dispositivo en cancha.</td></tr>
             <tr><td>Feedback inmediato</td><td>Mostrar score nuevo al guardar. El jugador lo ve en segundos</td></tr>
             <tr><td>Progreso visual</td><td>Barra de 520h prominente. El jugador debe sentir avance</td></tr>
             <tr><td>Notificación de nivel</td><td>Animación / alerta cuando el jugador sube de nivel</td></tr>
@@ -1496,12 +1502,12 @@
       </thead>
       <tbody>
         <tr><td>1</td><td>¿El pago es por sesión individual o suscripción mensual por jugador?</td><td>Modelo de facturación completo</td><td><span class="tag tag-red">Alta</span></td></tr>
-        <tr><td>2</td><td>¿Score mínimo para certificación? (sugerido: 60/100)</td><td>Valor del certificado</td><td><span class="tag tag-red">Alta</span></td></tr>
-        <tr><td>3</td><td>¿Se puede añadir contenido de video manualmente o solo desde admin?</td><td>Gestión de contenido</td><td><span class="tag tag-amber">Media</span></td></tr>
+        <tr><td>2</td><td>Score mínimo para certificación: <strong>70/100 — Definido</strong></td><td>Valor del certificado</td><td><span class="tag tag-green">Resuelto</span></td></tr>
+        <tr><td>3</td><td>Gestión de videos: <strong>solo el Administrador sube contenido — Definido</strong></td><td>Gestión de contenido</td><td><span class="tag tag-green">Resuelto</span></td></tr>
         <tr><td>4</td><td>¿Las evaluaciones son solo del entrenador o el jugador también puede auto-evaluar algún módulo?</td><td>Flujo de datos del score</td><td><span class="tag tag-amber">Media</span></td></tr>
         <tr><td>5</td><td>¿Los jugadores se registran solos o solo el entrenador los crea?</td><td>UX de onboarding</td><td><span class="tag tag-red">Alta</span></td></tr>
-        <tr><td>6</td><td>¿El ranking de PET es por club, ciudad o nacional?</td><td>Módulo ambiental</td><td><span class="tag tag-gray">Baja</span></td></tr>
-        <tr><td>7</td><td>¿Qué pasa si un jugador cambia de entrenador o club?</td><td>Integridad del historial</td><td><span class="tag tag-amber">Media</span></td></tr>
+        <tr><td>6</td><td>Ranking de PET: <strong>por club — Definido</strong></td><td>Módulo ambiental</td><td><span class="tag tag-green">Resuelto</span></td></tr>
+        <tr><td>7</td><td>¿Qué pasa si un jugador cambia de entrenador o club? <strong>Definir flujo de migración de historial</strong></td><td>Integridad del historial</td><td><span class="tag tag-red">Alta — Pendiente</span></td></tr>
       </tbody>
     </table>
   </section>
