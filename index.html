@@ -26,6 +26,7 @@
     line-height: 1.6;
   }
 
+  /* HEADER */
   .hero {
     background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
     border-bottom: 2px solid var(--accent);
@@ -82,6 +83,7 @@
   .badge.amber { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.3); color: var(--accent2); }
   .badge.green { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.3); color: var(--accent3); }
 
+  /* NAV */
   .toc {
     background: var(--surface);
     border-bottom: 1px solid var(--border);
@@ -105,12 +107,14 @@
   }
   .toc a:hover { color: var(--accent); background: rgba(34,211,238,0.08); }
 
+  /* CONTENT */
   .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 40px 40px 80px;
   }
 
+  /* SECTIONS */
   section {
     margin-bottom: 56px;
   }
@@ -156,6 +160,7 @@
   }
   p { color: var(--muted); font-size: 14px; margin-bottom: 10px; }
 
+  /* CARDS GRID */
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -184,6 +189,7 @@
   .card-value span { color: var(--accent); }
   .card-desc { font-size: 12px; color: var(--muted); margin-top: 4px; }
 
+  /* SCORE VISUAL */
   .score-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -238,6 +244,7 @@
   }
   .metric-bar.amber { background: var(--accent2); }
 
+  /* FORMULA BOX */
   .formula-box {
     background: rgba(34,211,238,0.06);
     border: 1px solid rgba(34,211,238,0.2);
@@ -259,6 +266,7 @@
     margin-top: 8px;
   }
 
+  /* TABLE */
   .spec-table {
     width: 100%;
     border-collapse: collapse;
@@ -298,6 +306,7 @@
   .tag-red { background: rgba(239,68,68,0.12); color: var(--danger); }
   .tag-gray { background: rgba(148,163,184,0.12); color: var(--muted); }
 
+  /* FLOW */
   .flow {
     display: flex;
     flex-direction: column;
@@ -342,6 +351,7 @@
   .flow-title { font-size: 14px; font-weight: 600; color: var(--text); }
   .flow-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
+  /* ROLES */
   .roles-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -380,6 +390,7 @@
     flex-shrink: 0;
   }
 
+  /* ALERT / NOTE */
   .note {
     background: rgba(245,158,11,0.08);
     border-left: 3px solid var(--accent2);
@@ -403,15 +414,173 @@
   .note.blue .note-title { color: var(--accent); }
   .note.blue p { color: #7dd7e8; }
 
-  .truncated-notice {
-    background: rgba(239,68,68,0.08);
-    border: 1px solid rgba(239,68,68,0.25);
-    border-radius: var(--radius);
-    padding: 18px 20px;
-    margin-top: 16px;
+  /* SITEMAP */
+  #sitemap {
+    scroll-margin-top: 60px;
   }
-  .truncated-notice strong { color: #fff; }
+  .sitemap-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    overflow-x: auto;
+  }
+  svg.sitemap {
+    min-width: 800px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .sm-node {
+    cursor: default;
+  }
+  .sm-node rect {
+    transition: filter 0.2s;
+  }
+  .sm-node:hover rect {
+    filter: brightness(1.2);
+  }
 
+  /* STATES */
+  .states-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .state-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+  .state-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+  }
+  .state-desc { font-size: 13px; color: var(--muted); }
+
+  /* VIDEO CATEGORIES */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+  }
+  .video-cat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .video-cat-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    background: rgba(34,211,238,0.1);
+  }
+  .video-cat-name { font-size: 13px; font-weight: 500; color: var(--text); }
+  .video-cat-count { font-size: 11px; color: var(--muted); }
+
+  /* DASHBOARD MOCKUP */
+  .dash-preview {
+    background: #0a0f1e;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 12px;
+  }
+  .dash-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .dash-topbar-title { font-weight: 700; font-size: 14px; color: #fff; }
+  .dash-kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .dash-kpi {
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .dash-kpi-label { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .dash-kpi-val { font-size: 20px; font-weight: 800; color: #fff; margin: 4px 0 2px; }
+  .dash-kpi-delta { font-size: 10px; color: var(--accent3); }
+  .dash-body-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .dash-panel {
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .dash-panel-title { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .dash-score-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 7px;
+  }
+  .dash-score-row span:first-child { font-size: 12px; color: var(--text); }
+  .dash-score-row span:last-child { font-size: 12px; font-weight: 700; color: var(--accent); }
+  .dash-bar { height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; margin-bottom: 10px; }
+  .dash-bar-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--accent), #38bdf8); }
+  .dash-progress {
+    background: conic-gradient(var(--accent) var(--pct, 0%), rgba(255,255,255,0.07) 0%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+  }
+  .dash-progress-inner {
+    background: var(--surface);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  /* TECH STACK */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .tech-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .tech-layer { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 4px; }
+  .tech-name { font-size: 14px; font-weight: 600; color: var(--text); }
+  .tech-reason { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  /* FOOTER */
   .doc-footer {
     border-top: 1px solid var(--border);
     padding: 30px 40px;
@@ -426,11 +595,15 @@
     .hero { padding: 32px 20px; }
     .container { padding: 24px 20px 60px; }
     .toc { padding: 10px 20px; }
-    .score-grid, .roles-grid { grid-template-columns: 1fr; }
+    .score-grid, .roles-grid, .states-grid { grid-template-columns: 1fr; }
+    .dash-kpi-row { grid-template-columns: repeat(2, 1fr); }
+    .dash-body-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
+
+<!-- HERO -->
 <div class="hero">
   <div class="hero-logo">NeuroCracks Platform</div>
   <h1><span>Neuro</span>Cracks <br>MVP — Especificación Funcional</h1>
@@ -442,6 +615,8 @@
     <span class="badge">Mayo 2026</span>
   </div>
 </div>
+
+<!-- NAV -->
 <nav class="toc">
   <a href="#objetivo">Objetivo</a>
   <a href="#score">Score</a>
@@ -455,24 +630,65 @@
   <a href="#estados">Estados</a>
   <a href="#pagos">Pagos</a>
   <a href="#ambiental">Ambiental</a>
+  <a href="#dashboard">Dashboard</a>
+  <a href="#sitemap">Mapa del Sitio</a>
+  <a href="#flujo">Flujo Principal</a>
+  <a href="#tech">Stack Técnico</a>
 </nav>
+
 <div class="container">
+
+  <!-- 1. OBJETIVO -->
   <section id="objetivo">
-    <div class="section-header"><div class="section-num">1</div><h2>Objetivo del Sistema</h2></div>
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>Objetivo del Sistema</h2>
+    </div>
     <p>NeuroCracks es un sistema integral para medir, desarrollar y hacer seguimiento al progreso deportivo y formativo de jóvenes deportistas mediante una plataforma digital centralizada.</p>
+
     <div class="card-grid" style="margin-top:20px;">
-      <div class="card"><div class="card-title">Score Global</div><div class="card-value"><span>0</span>–<span>100</span></div><div class="card-desc">Puntuación unificada del jugador</div></div>
-      <div class="card"><div class="card-title">Horas Objetivo</div><div class="card-value"><span>520</span> h</div><div class="card-desc">Para certificación completa</div></div>
-      <div class="card"><div class="card-title">Componentes</div><div class="card-value"><span>2</span></div><div class="card-desc">Deportivo + Formativo, 50/50</div></div>
-      <div class="card"><div class="card-title">Roles</div><div class="card-value"><span>3</span></div><div class="card-desc">Admin, Entrenador, Jugador</div></div>
+      <div class="card">
+        <div class="card-title">Score Global</div>
+        <div class="card-value"><span>0</span>–<span>100</span></div>
+        <div class="card-desc">Puntuación unificada del jugador</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Horas Objetivo</div>
+        <div class="card-value"><span>520</span> h</div>
+        <div class="card-desc">Para certificación completa</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Componentes</div>
+        <div class="card-value"><span>2</span></div>
+        <div class="card-desc">Deportivo + Formativo, 50/50</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Roles</div>
+        <div class="card-value"><span>3</span></div>
+        <div class="card-desc">Admin, Entrenador, Jugador</div>
+      </div>
+    </div>
+
+    <div class="note blue" style="margin-top:16px;">
+      <div class="note-title">Propósito diferenciador</div>
+      <p>NeuroCracks no es solo una herramienta de gestión deportiva: es un ecosistema de desarrollo humano que combina métricas de rendimiento físico con indicadores de formación cognitiva, liderazgo y sostenibilidad.</p>
     </div>
   </section>
+
+  <!-- 2. SCORE -->
   <section id="score">
-    <div class="section-header"><div class="section-num">2</div><h2>Estructura del Score Global</h2></div>
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>Estructura del Score Global</h2>
+    </div>
+
     <div class="formula-box">
-      <div class="formula">Score Final = (<span class="highlight">Deportivo × 0.5</span>) + (<span class="highlight">Inteligencias × 0.5</span>)</div>
+      <div class="formula">
+        Score Final = (<span class="highlight">Deportivo × 0.5</span>) + (<span class="highlight">Inteligencias × 0.5</span>)
+      </div>
       <div class="formula-desc">Resultado en escala de 0 a 100 · Actualización automática tras cada evaluación</div>
     </div>
+
     <div class="score-grid">
       <div class="score-block">
         <div class="score-block-title">A. Rendimiento Deportivo</div>
@@ -482,6 +698,10 @@
         <div class="metric-row"><div class="metric-dot"></div><div class="metric-name">Juego aéreo</div><div class="metric-bar-wrap"><div class="metric-bar"></div></div></div>
         <div class="metric-row"><div class="metric-dot"></div><div class="metric-name">Técnica individual</div><div class="metric-bar-wrap"><div class="metric-bar"></div></div></div>
         <div class="metric-row"><div class="metric-dot"></div><div class="metric-name">Velocidad y agilidad</div><div class="metric-bar-wrap"><div class="metric-bar"></div></div></div>
+        <div class="note blue" style="margin-top:14px; padding:10px 12px;">
+          <div class="note-title" style="margin-bottom:2px;">Recomendación técnica</div>
+          <p>Cada métrica deportiva debe calificarse en escala 1–10 por el entrenador. El sub-score deportivo es el promedio de las 5 métricas × 10.</p>
+        </div>
       </div>
       <div class="score-block amber">
         <div class="score-block-title">B. Inteligencias Múltiples</div>
@@ -491,13 +711,30 @@
         <div class="metric-row"><div class="metric-dot amber"></div><div class="metric-name">Cuidado del planeta</div><div class="metric-bar-wrap"><div class="metric-bar amber"></div></div></div>
         <div class="metric-row"><div class="metric-dot amber"></div><div class="metric-name">Finanzas deportivas</div><div class="metric-bar-wrap"><div class="metric-bar amber"></div></div></div>
         <div class="metric-row"><div class="metric-dot amber"></div><div class="metric-name">Marketing deportivo</div><div class="metric-bar-wrap"><div class="metric-bar amber"></div></div></div>
+        <div class="note" style="margin-top:14px; padding:10px 12px;">
+          <div class="note-title" style="margin-bottom:2px;">Recomendación técnica</div>
+          <p>Las inteligencias múltiples se evalúan mediante módulos de contenido + cuestionarios. Escala 1–10. Sub-score = promedio × 10.</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- 3. PROGRESO -->
   <section id="progreso">
-    <div class="section-header"><div class="section-num green">3</div><h2>Progreso del Jugador — 520 Horas</h2></div>
+    <div class="section-header">
+      <div class="section-num green">3</div>
+      <h2>Progreso del Jugador — 520 Horas</h2>
+    </div>
+
     <table class="spec-table">
-      <thead><tr><th>Nivel</th><th>Rango de horas</th><th>Nombre sugerido</th><th>Estado</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Nivel</th>
+          <th>Rango de horas</th>
+          <th>Nombre sugerido</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
       <tbody>
         <tr><td>1</td><td>0 – 65 h</td><td>Iniciado</td><td><span class="tag tag-gray">Activo</span></td></tr>
         <tr><td>2</td><td>65 – 130 h</td><td>Explorador</td><td><span class="tag tag-blue">Activo</span></td></tr>
@@ -507,30 +744,796 @@
         <tr><td>—</td><td>520 h completadas</td><td><strong>Certificado NeuroCracks</strong></td><td><span class="tag tag-green">Certificado</span></td></tr>
       </tbody>
     </table>
+
+    <div class="note green" style="margin-top:8px;">
+      <div class="note-title">Certificación automática</div>
+      <p>Al alcanzar 520 horas, el sistema genera automáticamente la certificación del jugador, notifica al entrenador y cambia el estado a Certificado. El historial se conserva permanentemente.</p>
+    </div>
   </section>
+
+  <!-- 4. MODELO EDUCATIVO -->
+  <section id="educativo">
+    <div class="section-header">
+      <div class="section-num amber">4</div>
+      <h2>Modelo Educativo y Videos Formativos</h2>
+    </div>
+
+    <p>La plataforma incorpora un modelo híbrido entre entrenamiento deportivo y formación educativa. Cada sesión lleva asociado contenido audiovisual complementario.</p>
+
+    <table class="spec-table" style="margin-top:16px;">
+      <thead>
+        <tr><th>Componente del video</th><th>Descripción</th><th>MVP</th><th>Futuro</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Explicación técnica deportiva</td><td>Detalle del ejercicio o táctica trabajada</td><td><span class="tag tag-green">✓ Incluido</span></td><td>—</td></tr>
+        <tr><td>Módulo educativo integrado</td><td>Concepto de inteligencias múltiples relacionado</td><td><span class="tag tag-green">✓ Incluido</span></td><td>—</td></tr>
+        <tr><td>Narración en inglés</td><td>Vocabulario deportivo en inglés como segundo idioma</td><td><span class="tag tag-green">✓ Incluido</span></td><td>—</td></tr>
+        <tr><td>Subtítulos multiidioma</td><td>Traducción automática vía i18n</td><td><span class="tag tag-gray">No</span></td><td><span class="tag tag-amber">Fase 2</span></td></tr>
+        <tr><td>Quiz post-video</td><td>Preguntas para validar comprensión y sumar score</td><td><span class="tag tag-amber">Opcional</span></td><td><span class="tag tag-green">✓ Prioridad</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="note" style="margin-top:12px;">
+      <div class="note-title">Mejora sugerida</div>
+      <p>Añadir un mini-quiz al final de cada video educativo (3–5 preguntas) que sume directamente al sub-score de Inteligencias Múltiples. Esto hace el progreso inmediato y tangible para el jugador.</p>
+    </div>
+  </section>
+
+  <!-- 5. IDIOMAS -->
+  <section id="idiomas">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Sistema de Idiomas e Internacionalización</h2>
+    </div>
+
+    <table class="spec-table">
+      <thead>
+        <tr><th>Función</th><th>MVP (Fase 1)</th><th>Fase 2+</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Idioma de la interfaz</td><td><span class="tag tag-green">Español</span></td><td>EN, PT, FR</td></tr>
+        <tr><td>Selector de idioma visible</td><td><span class="tag tag-gray">No</span></td><td><span class="tag tag-green">✓</span></td></tr>
+        <tr><td>Claves de traducción (i18n)</td><td><span class="tag tag-amber">Arquitectura lista</span></td><td>Contenido traducido</td></tr>
+        <tr><td>Contenido de videos multiidioma</td><td>Solo inglés (narración)</td><td>Doblaje / subtítulos</td></tr>
+        <tr><td>Adaptación regional (moneda, fecha)</td><td><span class="tag tag-gray">No</span></td><td><span class="tag tag-amber">Fase 2</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="note blue" style="margin-top:12px;">
+      <div class="note-title">Decisión arquitectónica clave</div>
+      <p>Todo el texto de la UI debe pasar por un sistema de claves (i18n) desde el día 1. Hardcodear strings en español implica reescribir el frontend completo para internacionalizar. Costo de hacerlo bien al inicio: ~2 días. Costo de remediarlo después: semanas.</p>
+    </div>
+  </section>
+
+  <!-- 6. VIDEOS ENTRENADORES -->
   <section id="videos">
-    <div class="section-header"><div class="section-num">6</div><h2>Sistema de Videos para Entrenadores</h2></div>
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Sistema de Videos para Entrenadores</h2>
+    </div>
+
     <div class="card-grid">
-      <div class="card"><div class="card-title">Videos Iniciales</div><div class="card-value"><span>70</span></div><div class="card-desc">Contenido formativo oficial</div></div>
-      <div class="card"><div class="card-title">Categorías</div><div class="card-value"><span>8</span></div><div class="card-desc">Deportivas + formativas</div></div>
-      <div class="card"><div class="card-title">Tracking</div><div class="card-value"><span>%</span></div><div class="card-desc">Progreso por categoría</div></div>
+      <div class="card">
+        <div class="card-title">Videos Iniciales</div>
+        <div class="card-value"><span>70</span></div>
+        <div class="card-desc">Contenido formativo oficial</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Categorías</div>
+        <div class="card-value"><span>8</span></div>
+        <div class="card-desc">Deportivas + formativas</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Tracking</div>
+        <div class="card-value"><span>%</span></div>
+        <div class="card-desc">Progreso por categoría</div>
+      </div>
     </div>
+
+    <div class="video-grid" style="margin-top:16px;">
+      <div class="video-cat"><div class="video-cat-icon">⚽</div><div><div class="video-cat-name">Técnica individual</div><div class="video-cat-count">~10 videos</div></div></div>
+      <div class="video-cat"><div class="video-cat-icon">🏹</div><div><div class="video-cat-name">Juego ofensivo</div><div class="video-cat-count">~10 videos</div></div></div>
+      <div class="video-cat"><div class="video-cat-icon">🛡️</div><div><div class="video-cat-name">Juego defensivo</div><div class="video-cat-count">~10 videos</div></div></div>
+      <div class="video-cat"><div class="video-cat-icon">🦅</div><div><div class="video-cat-name">Juego aéreo</div><div class="video-cat-count">~8 videos</div></div></div>
+      <div class="video-cat"><div class="video-cat-icon">⚡</div><div><div class="video-cat-name">Velocidad y agilidad</div><div class="video-cat-count">~8 videos</div></div></div>
+      <div class="video-cat"><div class="video-cat-icon">🧠</div><div><div class="video-cat-name">Liderazgo</div><div class="video-cat-count">~8 videos</div></div></div>
+      <div class="video-cat"><div class="video-cat-icon">📚</div><div><div class="video-cat-name">Formación educativa</div><div class="video-cat-count">~8 videos</div></div></div>
+      <div class="video-cat"><div class="video-cat-icon">🔬</div><div><div class="video-cat-name">Metodología NeuroCracks</div><div class="video-cat-count">~8 videos</div></div></div>
+    </div>
+
+    <h3 style="margin-top:20px;">Funcionalidades requeridas</h3>
+    <table class="spec-table">
+      <thead>
+        <tr><th>Función</th><th>Detalle</th><th>Prioridad</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Reproducción de videos</td><td>Player embebido (YouTube / Vimeo / nativo)</td><td><span class="tag tag-red">Alta</span></td></tr>
+        <tr><td>Progreso por categoría</td><td>Barra % de videos vistos por bloque temático</td><td><span class="tag tag-red">Alta</span></td></tr>
+        <tr><td>Estado completado / pendiente</td><td>Marca visual en cada video</td><td><span class="tag tag-red">Alta</span></td></tr>
+        <tr><td>Certificado de entrenador</td><td>Al completar el 100% de una categoría</td><td><span class="tag tag-amber">Media</span></td></tr>
+        <tr><td>Notas personales</td><td>Campo de texto por video para el entrenador</td><td><span class="tag tag-gray">Baja</span></td></tr>
+      </tbody>
+    </table>
   </section>
+
+  <!-- 7. ROLES -->
   <section id="roles">
-    <div class="section-header"><div class="section-num amber">7</div><h2>Roles del Sistema</h2></div>
+    <div class="section-header">
+      <div class="section-num amber">7</div>
+      <h2>Roles del Sistema</h2>
+    </div>
+
     <div class="roles-grid">
-      <div class="role-card"><div class="role-icon">👑</div><div class="role-name">Administrador</div></div>
-      <div class="role-card"><div class="role-icon">🎯</div><div class="role-name">Entrenador</div></div>
-      <div class="role-card"><div class="role-icon">⚽</div><div class="role-name">Jugador</div></div>
+      <div class="role-card">
+        <div class="role-icon">👑</div>
+        <div class="role-name">Administrador</div>
+        <div class="role-perm">Aprobar / rechazar entrenadores</div>
+        <div class="role-perm">Crear entrenadores manualmente</div>
+        <div class="role-perm">Bloquear y suspender usuarios</div>
+        <div class="role-perm">Validar identidad y clubes</div>
+        <div class="role-perm">Supervisar actividad global</div>
+        <div class="role-perm">Ver dashboards generales</div>
+        <div class="role-perm">Gestionar pagos e ingresos</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🎯</div>
+        <div class="role-name">Entrenador</div>
+        <div class="role-perm">Buscar y ver deportistas</div>
+        <div class="role-perm">Evaluar y calificar jugadores</div>
+        <div class="role-perm">Ver historial de progreso</div>
+        <div class="role-perm">Acceder a videos formativos</div>
+        <div class="role-perm">Gestionar sesiones y pagos</div>
+        <div class="role-perm">Registrar botellas PET</div>
+        <div class="role-perm">Ver dashboard propio</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">⚽</div>
+        <div class="role-name">Jugador</div>
+        <div class="role-perm">Ver Score Global personal</div>
+        <div class="role-perm">Seguir progreso de 520 h</div>
+        <div class="role-perm">Ver métricas deportivas</div>
+        <div class="role-perm">Ver métricas educativas</div>
+        <div class="role-perm">Ver nivel y certificación</div>
+        <div class="role-perm">Acceder a historial propio</div>
+        <div class="role-perm">Consumir contenido educativo</div>
+      </div>
     </div>
   </section>
-  <div class="truncated-notice">
-    <strong>Nota:</strong> Publiqué una versión resumida porque la lectura del archivo fuente llegó truncada en esta sesión. Si quieres, en el siguiente paso puedo copiar el HTML completo sin recortes y dejar la página idéntica al archivo original.
+
+  <!-- 8. REGISTRO ENTRENADORES -->
+  <section id="registro">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>Registro y Validación de Entrenadores</h2>
+    </div>
+
+    <p>Sistema híbrido de aprobación con revisión administrativa antes de otorgar acceso.</p>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:24px; margin-top:16px;">
+      <div>
+        <h3>Flujo de aprobación</h3>
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-left"><div class="flow-circle">1</div><div class="flow-line"></div></div>
+            <div class="flow-content"><div class="flow-title">Entrenador se registra</div><div class="flow-desc">Completa formulario con datos verificables</div></div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-left"><div class="flow-circle">2</div><div class="flow-line"></div></div>
+            <div class="flow-content"><div class="flow-title">Sistema notifica al Admin</div><div class="flow-desc">Email + alerta en dashboard</div></div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-left"><div class="flow-circle">3</div><div class="flow-line"></div></div>
+            <div class="flow-content"><div class="flow-title">Admin revisa solicitud</div><div class="flow-desc">Verifica documentos e identidad</div></div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-left"><div class="flow-circle">4</div><div class="flow-line"></div></div>
+            <div class="flow-content"><div class="flow-title">Admin aprueba o rechaza</div><div class="flow-desc">Con comentario opcional en caso de rechazo</div></div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-left"><div class="flow-circle">5</div></div>
+            <div class="flow-content"><div class="flow-title">Entrenador recibe acceso</div><div class="flow-desc">Email de bienvenida + credenciales</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3>Datos de validación requeridos</h3>
+        <table class="spec-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Requerido</th></tr></thead>
+          <tbody>
+            <tr><td>Nombre completo</td><td>Texto</td><td><span class="tag tag-red">Sí</span></td></tr>
+            <tr><td>Documento de identidad</td><td>Archivo / Número</td><td><span class="tag tag-red">Sí</span></td></tr>
+            <tr><td>Correo electrónico</td><td>Email verificado</td><td><span class="tag tag-red">Sí</span></td></tr>
+            <tr><td>Ciudad</td><td>Select</td><td><span class="tag tag-red">Sí</span></td></tr>
+            <tr><td>País</td><td>Select</td><td><span class="tag tag-red">Sí</span></td></tr>
+            <tr><td>Nombre del club</td><td>Texto</td><td><span class="tag tag-red">Sí</span></td></tr>
+            <tr><td>Referencia institucional</td><td>Texto + URL</td><td><span class="tag tag-amber">Recomendado</span></td></tr>
+            <tr><td>Foto de perfil</td><td>Imagen</td><td><span class="tag tag-amber">Recomendado</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CERTIFICACIÓN -->
+  <section id="certificacion">
+    <div class="section-header">
+      <div class="section-num green">9</div>
+      <h2>Certificación de Jugadores</h2>
+    </div>
+
+    <div class="note green">
+      <div class="note-title">Decisión estratégica confirmada</div>
+      <p>El historial de jugadores certificados NUNCA se elimina. Se conserva para trazabilidad, scouting, validación de metodología y generación de reportes históricos.</p>
+    </div>
+
+    <table class="spec-table" style="margin-top:16px;">
+      <thead>
+        <tr><th>Elemento de la certificación</th><th>Detalle</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Condición de certificación</td><td>520 horas completadas + Score mínimo recomendado (definir umbral)</td></tr>
+        <tr><td>Generación automática</td><td>El sistema crea el certificado digital al cumplir condición</td></tr>
+        <tr><td>Formato del certificado</td><td>PDF descargable + versión digital con QR de validación</td></tr>
+        <tr><td>Datos incluidos</td><td>Nombre, club, nivel alcanzado, Score Global, fecha, firma del entrenador</td></tr>
+        <tr><td>Verificación pública</td><td>QR enlaza a página de validación del certificado (Fase 2)</td></tr>
+        <tr><td>Notificaciones</td><td>Email al jugador + email al entrenador + alerta en dashboard</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note" style="margin-top:12px;">
+      <div class="note-title">Mejora sugerida — Score mínimo de certificación</div>
+      <p>Definir un score mínimo (sugerido: 60/100) para certificar. Esto da valor real al certificado y motiva al jugador a desarrollarse íntegramente, no solo acumular horas.</p>
+    </div>
+  </section>
+
+  <!-- 10. ESTADOS -->
+  <section id="estados">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>Estados del Jugador y Arquitectura de Datos</h2>
+    </div>
+
+    <div class="states-grid">
+      <div class="state-card">
+        <div class="state-label" style="color: var(--accent3);">● Activo</div>
+        <div class="state-desc">Jugador actualmente utilizando la plataforma. Puede ser evaluado, sumar horas y mejorar su score.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-label" style="color: var(--accent2);">★ Certificado</div>
+        <div class="state-desc">Jugador que completó el proceso formativo (520 h + score mínimo). Historial siempre visible y exportable.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-label" style="color: var(--muted);">◷ Archivado</div>
+        <div class="state-desc">Jugador inactivo. Fuera de operación activa pero con historial completo conservado. No aparece en listas operativas.</div>
+      </div>
+    </div>
+
+    <h3>Arquitectura de datos recomendada</h3>
+    <table class="spec-table">
+      <thead>
+        <tr><th>Base</th><th>Contenido</th><th>Propósito</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Base activa</td><td>Jugadores Activo + Certificado reciente</td><td>Operación diaria, lecturas rápidas</td></tr>
+        <tr><td>Base histórica</td><td>Jugadores Archivados + historial completo</td><td>Reportes, scouting, trazabilidad</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 11. PAGOS -->
+  <section id="pagos">
+    <div class="section-header">
+      <div class="section-num red">11</div>
+      <h2>Módulo de Pagos</h2>
+    </div>
+
+    <table class="spec-table">
+      <thead>
+        <tr><th>Elemento</th><th>Detalle</th><th>Notas</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Precio por sesión</td><td>$2.000 COP</td><td>Configurable por el Admin</td></tr>
+        <tr><td>Método de pago MVP</td><td>PSE / Tarjeta / Nequi (Colombia)</td><td>Integración con pasarela local</td></tr>
+        <tr><td>Quién paga</td><td>Entrenador o club por jugador</td><td>Definir modelo de facturación</td></tr>
+        <tr><td>Historial de pagos</td><td>Log de transacciones por entrenador</td><td>Visible en dashboard</td></tr>
+        <tr><td>Comprobante</td><td>Email automático post-pago</td><td>PDF adjunto</td></tr>
+        <tr><td>Pasarela sugerida</td><td>Wompi / PayU (Colombia)</td><td>Ambas tienen SDK web</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note" style="margin-top:12px;">
+      <div class="note-title">Punto abierto a definir</div>
+      <p>¿El pago lo realiza el club/entrenador por suscripción mensual de jugadores, o es por sesión individual? Esta decisión impacta directamente el modelo de facturación y el dashboard de ingresos.</p>
+    </div>
+  </section>
+
+  <!-- 12. AMBIENTAL -->
+  <section id="ambiental">
+    <div class="section-header">
+      <div class="section-num green">12</div>
+      <h2>Módulo Ambiental</h2>
+    </div>
+
+    <table class="spec-table">
+      <thead>
+        <tr><th>Función</th><th>Descripción</th><th>Datos requeridos</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Registro de botellas PET</td><td>Entrenador registra unidades recolectadas por sesión o por club</td><td>Cantidad, fecha, club, entrenador</td></tr>
+        <tr><td>Ranking de clubes</td><td>Tabla comparativa de clubes por impacto ambiental acumulado</td><td>Total PET por club, período</td></tr>
+        <tr><td>Score ambiental (futuro)</td><td>Módulo que suma al sub-score "Cuidado del planeta"</td><td>Participación en acciones</td></tr>
+        <tr><td>Reporte de impacto</td><td>Dashboard con métricas globales de sostenibilidad</td><td>Agregado de todos los clubes</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 13. DASHBOARD -->
+  <section id="dashboard">
+    <div class="section-header">
+      <div class="section-num amber">13</div>
+      <h2>Dashboard — Vistas por Rol</h2>
+    </div>
+
+    <h3>Dashboard General (Admin / Entrenador)</h3>
+    <div class="dash-preview">
+      <div class="dash-topbar">
+        <div class="dash-topbar-title">NeuroCracks Dashboard</div>
+        <span class="tag tag-green">● En línea</span>
+      </div>
+      <div class="dash-kpi-row">
+        <div class="dash-kpi">
+          <div class="dash-kpi-label">Jugadores activos</div>
+          <div class="dash-kpi-val">48</div>
+          <div class="dash-kpi-delta">↑ 6 este mes</div>
+        </div>
+        <div class="dash-kpi">
+          <div class="dash-kpi-label">Ingresos (COP)</div>
+          <div class="dash-kpi-val">$96k</div>
+          <div class="dash-kpi-delta">↑ 12% vs mes ant.</div>
+        </div>
+        <div class="dash-kpi">
+          <div class="dash-kpi-label">Certificados</div>
+          <div class="dash-kpi-val">7</div>
+          <div class="dash-kpi-delta">↑ 2 este mes</div>
+        </div>
+        <div class="dash-kpi">
+          <div class="dash-kpi-label">PET registrado</div>
+          <div class="dash-kpi-val">340</div>
+          <div class="dash-kpi-delta">↑ Impacto ambiental</div>
+        </div>
+      </div>
+      <div class="dash-body-grid">
+        <div class="dash-panel">
+          <div class="dash-panel-title">Score promedio por jugador</div>
+          <div class="dash-score-row"><span>Juego ofensivo</span><span>7.4</span></div>
+          <div class="dash-bar"><div class="dash-bar-fill" style="width:74%"></div></div>
+          <div class="dash-score-row"><span>Técnica individual</span><span>6.8</span></div>
+          <div class="dash-bar"><div class="dash-bar-fill" style="width:68%"></div></div>
+          <div class="dash-score-row"><span>Liderazgo</span><span>5.9</span></div>
+          <div class="dash-bar"><div class="dash-bar-fill" style="width:59%"></div></div>
+          <div class="dash-score-row"><span>Idiomas</span><span>5.2</span></div>
+          <div class="dash-bar"><div class="dash-bar-fill" style="width:52%"></div></div>
+        </div>
+        <div class="dash-panel" style="text-align:center;">
+          <div class="dash-panel-title">Progreso promedio 520h</div>
+          <div style="--pct: 43%" class="dash-progress" style="margin-top:8px;">
+            <div class="dash-progress-inner">43%</div>
+          </div>
+          <p style="margin-top:12px; font-size:12px;">224 / 520 horas promedio</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:20px;">Panel del Jugador — Elementos requeridos</h3>
+    <table class="spec-table">
+      <thead>
+        <tr><th>Elemento</th><th>Descripción</th><th>Visualización</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Score Global NeuroCracks</td><td>Número 0–100 + nivel cualitativo</td><td>Número grande + color por rango</td></tr>
+        <tr><td>Sub-score deportivo</td><td>Promedio de 5 métricas × 10</td><td>Gráfico radar o barras</td></tr>
+        <tr><td>Sub-score inteligencias</td><td>Promedio de 5 módulos × 10</td><td>Gráfico radar o barras</td></tr>
+        <tr><td>Progreso 520 horas</td><td>Horas completadas / 520</td><td>Barra o círculo de progreso</td></tr>
+        <tr><td>Nivel actual</td><td>Nombre del nivel (Iniciado → Elite)</td><td>Badge visual</td></tr>
+        <tr><td>Certificación</td><td>Estado: pendiente / obtenida</td><td>Badge + descarga PDF</td></tr>
+        <tr><td>Historial de sesiones</td><td>Lista de evaluaciones con fecha y score</td><td>Tabla con paginación</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 14. MAPA DEL SITIO -->
+  <section id="sitemap">
+    <div class="section-header">
+      <div class="section-num">14</div>
+      <h2>Mapa del Sitio — MVP</h2>
+    </div>
+
+    <div class="sitemap-container">
+      <svg class="sitemap" viewBox="0 0 960 780" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif">
+        <defs>
+          <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#334155"/>
+          </marker>
+          <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#22d3ee"/>
+          </marker>
+        </defs>
+
+        <!-- LOGIN -->
+        <g class="sm-node">
+          <rect x="380" y="20" width="200" height="50" rx="10" fill="#22d3ee" opacity="0.15" stroke="#22d3ee" stroke-width="1.5"/>
+          <text x="480" y="41" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="700">🔐  LOGIN</text>
+          <text x="480" y="58" text-anchor="middle" fill="#94a3b8" font-size="10">Autenticación + recuperar clave</text>
+        </g>
+
+        <!-- LINES FROM LOGIN -->
+        <line x1="430" y1="70" x2="165" y2="130" stroke="#334155" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="480" y1="70" x2="480" y2="130" stroke="#334155" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="530" y1="70" x2="795" y2="130" stroke="#334155" stroke-width="1.5" marker-end="url(#arr)"/>
+
+        <!-- LABELS -->
+        <text x="280" y="108" text-anchor="middle" fill="#475569" font-size="10">Admin</text>
+        <text x="480" y="108" text-anchor="middle" fill="#475569" font-size="10">Entrenador</text>
+        <text x="680" y="108" text-anchor="middle" fill="#475569" font-size="10">Jugador</text>
+
+        <!-- === ADMIN === -->
+        <g class="sm-node">
+          <rect x="60" y="130" width="210" height="46" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+          <text x="165" y="149" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="700">👑 ADMINISTRADOR</text>
+          <text x="165" y="165" text-anchor="middle" fill="#94a3b8" font-size="10">Panel de control total</text>
+        </g>
+
+        <!-- Admin children lines -->
+        <line x1="165" y1="176" x2="80" y2="220" stroke="#475569" stroke-width="1" marker-end="url(#arr)"/>
+        <line x1="165" y1="176" x2="130" y2="220" stroke="#475569" stroke-width="1" marker-end="url(#arr)"/>
+        <line x1="165" y1="176" x2="180" y2="220" stroke="#475569" stroke-width="1" marker-end="url(#arr)"/>
+        <line x1="165" y1="176" x2="230" y2="220" stroke="#475569" stroke-width="1" marker-end="url(#arr)"/>
+
+        <rect x="30" y="220" width="90" height="36" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <text x="75" y="236" text-anchor="middle" fill="#cbd5e1" font-size="10" font-weight="600">Dashboard</text>
+        <text x="75" y="249" text-anchor="middle" fill="#64748b" font-size="9">General</text>
+
+        <rect x="83" y="220" width="90" height="36" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <text x="128" y="236" text-anchor="middle" fill="#cbd5e1" font-size="10" font-weight="600">Aprobar</text>
+        <text x="128" y="249" text-anchor="middle" fill="#64748b" font-size="9">Entrenadores</text>
+
+        <rect x="136" y="220" width="90" height="36" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <text x="181" y="236" text-anchor="middle" fill="#cbd5e1" font-size="10" font-weight="600">Gestionar</text>
+        <text x="181" y="249" text-anchor="middle" fill="#64748b" font-size="9">Usuarios</text>
+
+        <rect x="189" y="220" width="90" height="36" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <text x="234" y="236" text-anchor="middle" fill="#cbd5e1" font-size="10" font-weight="600">Validar</text>
+        <text x="234" y="249" text-anchor="middle" fill="#64748b" font-size="9">Clubes</text>
+
+        <!-- === ENTRENADOR === -->
+        <g class="sm-node">
+          <rect x="365" y="130" width="230" height="46" rx="8" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+          <text x="480" y="149" text-anchor="middle" fill="#22d3ee" font-size="11" font-weight="700">🎯 ENTRENADOR</text>
+          <text x="480" y="165" text-anchor="middle" fill="#94a3b8" font-size="10">Panel + gestión de jugadores</text>
+        </g>
+
+        <!-- Entrenador → sections -->
+        <line x1="400" y1="176" x2="340" y2="290" stroke="#22d3ee" stroke-width="1" stroke-opacity="0.5" marker-end="url(#arr-blue)"/>
+        <line x1="435" y1="176" x2="415" y2="290" stroke="#22d3ee" stroke-width="1" stroke-opacity="0.5" marker-end="url(#arr-blue)"/>
+        <line x1="480" y1="176" x2="490" y2="290" stroke="#22d3ee" stroke-width="1" stroke-opacity="0.5" marker-end="url(#arr-blue)"/>
+        <line x1="525" y1="176" x2="565" y2="290" stroke="#22d3ee" stroke-width="1" stroke-opacity="0.5" marker-end="url(#arr-blue)"/>
+        <line x1="560" y1="176" x2="640" y2="290" stroke="#22d3ee" stroke-width="1" stroke-opacity="0.5" marker-end="url(#arr-blue)"/>
+
+        <!-- Deportistas -->
+        <rect x="285" y="290" width="110" height="40" rx="7" fill="#0f172a" stroke="#22d3ee" stroke-width="1.2"/>
+        <text x="340" y="306" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="700">⚽ Deportistas</text>
+        <text x="340" y="320" text-anchor="middle" fill="#64748b" font-size="9">Buscar · Ver · Evaluar</text>
+
+        <line x1="340" y1="330" x2="295" y2="360" stroke="#334155" stroke-width="0.8" marker-end="url(#arr)"/>
+        <line x1="340" y1="330" x2="340" y2="360" stroke="#334155" stroke-width="0.8" marker-end="url(#arr)"/>
+        <line x1="340" y1="330" x2="385" y2="360" stroke="#334155" stroke-width="0.8" marker-end="url(#arr)"/>
+
+        <rect x="260" y="360" width="72" height="30" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <text x="296" y="371" text-anchor="middle" fill="#94a3b8" font-size="9" font-weight="600">Buscar</text>
+        <text x="296" y="383" text-anchor="middle" fill="#64748b" font-size="8">jugador</text>
+
+        <rect x="305" y="360" width="72" height="30" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <text x="341" y="371" text-anchor="middle" fill="#94a3b8" font-size="9" font-weight="600">Calificar</text>
+        <text x="341" y="383" text-anchor="middle" fill="#64748b" font-size="8">Score</text>
+
+        <rect x="350" y="360" width="72" height="30" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <text x="386" y="371" text-anchor="middle" fill="#94a3b8" font-size="9" font-weight="600">Historial</text>
+        <text x="386" y="383" text-anchor="middle" fill="#64748b" font-size="8">sesiones</text>
+
+        <!-- Dashboard -->
+        <rect x="360" y="290" width="110" height="40" rx="7" fill="#0f172a" stroke="#22d3ee" stroke-width="1.2"/>
+        <text x="415" y="306" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="700">📊 Dashboard</text>
+        <text x="415" y="320" text-anchor="middle" fill="#64748b" font-size="9">Usuarios · Ingresos · Impacto</text>
+
+        <!-- Videos -->
+        <rect x="436" y="290" width="110" height="40" rx="7" fill="#0f172a" stroke="#22d3ee" stroke-width="1.2"/>
+        <text x="491" y="306" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="700">🎬 Videos</text>
+        <text x="491" y="320" text-anchor="middle" fill="#64748b" font-size="9">8 categorías · 70 videos</text>
+
+        <line x1="491" y1="330" x2="470" y2="360" stroke="#334155" stroke-width="0.8" marker-end="url(#arr)"/>
+        <line x1="491" y1="330" x2="512" y2="360" stroke="#334155" stroke-width="0.8" marker-end="url(#arr)"/>
+
+        <rect x="432" y="360" width="72" height="30" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <text x="468" y="374" text-anchor="middle" fill="#94a3b8" font-size="9">Técnica/Táctica</text>
+        <text x="468" y="385" text-anchor="middle" fill="#64748b" font-size="8">5 categorías dep.</text>
+
+        <rect x="477" y="360" width="72" height="30" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <text x="513" y="374" text-anchor="middle" fill="#94a3b8" font-size="9">Educación</text>
+        <text x="513" y="385" text-anchor="middle" fill="#64748b" font-size="8">3 categorías form.</text>
+
+        <!-- Pagos -->
+        <rect x="511" y="290" width="110" height="40" rx="7" fill="#0f172a" stroke="#22d3ee" stroke-width="1.2"/>
+        <text x="566" y="306" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="700">💳 Pagos</text>
+        <text x="566" y="320" text-anchor="middle" fill="#64748b" font-size="9">Sesiones · $2.000 COP</text>
+
+        <!-- Ambiental -->
+        <rect x="586" y="290" width="110" height="40" rx="7" fill="#0f172a" stroke="#22d3ee" stroke-width="1.2"/>
+        <text x="641" y="306" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="700">🌱 Ambiental</text>
+        <text x="641" y="320" text-anchor="middle" fill="#64748b" font-size="9">PET · Ranking clubes</text>
+
+        <!-- === JUGADOR === -->
+        <g class="sm-node">
+          <rect x="680" y="130" width="230" height="46" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+          <text x="795" y="149" text-anchor="middle" fill="#10b981" font-size="11" font-weight="700">⚽ JUGADOR</text>
+          <text x="795" y="165" text-anchor="middle" fill="#94a3b8" font-size="10">Panel personal de seguimiento</text>
+        </g>
+
+        <!-- Jugador children -->
+        <line x1="760" y1="176" x2="700" y2="290" stroke="#10b981" stroke-width="1" stroke-opacity="0.5" marker-end="url(#arr)"/>
+        <line x1="795" y1="176" x2="795" y2="290" stroke="#10b981" stroke-width="1" stroke-opacity="0.5" marker-end="url(#arr)"/>
+        <line x1="830" y1="176" x2="890" y2="290" stroke="#10b981" stroke-width="1" stroke-opacity="0.5" marker-end="url(#arr)"/>
+
+        <rect x="640" y="290" width="120" height="40" rx="7" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+        <text x="700" y="306" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="700">🎯 Score Global</text>
+        <text x="700" y="320" text-anchor="middle" fill="#64748b" font-size="9">Deportivo + Formativo</text>
+
+        <rect x="730" y="290" width="130" height="40" rx="7" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+        <text x="795" y="306" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="700">⏱ Progreso 520h</text>
+        <text x="795" y="320" text-anchor="middle" fill="#64748b" font-size="9">Nivel · Historial</text>
+
+        <rect x="840" y="290" width="100" height="40" rx="7" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+        <text x="890" y="306" text-anchor="middle" fill="#e2e8f0" font-size="10" font-weight="700">🏅 Certificación</text>
+        <text x="890" y="320" text-anchor="middle" fill="#64748b" font-size="9">PDF · QR · Estado</text>
+
+        <!-- Score details -->
+        <line x1="700" y1="330" x2="680" y2="360" stroke="#334155" stroke-width="0.8" marker-end="url(#arr)"/>
+        <line x1="700" y1="330" x2="720" y2="360" stroke="#334155" stroke-width="0.8" marker-end="url(#arr)"/>
+
+        <rect x="640" y="360" width="78" height="30" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <text x="679" y="374" text-anchor="middle" fill="#94a3b8" font-size="9">Rendimiento</text>
+        <text x="679" y="385" text-anchor="middle" fill="#64748b" font-size="8">deportivo (5)</text>
+
+        <rect x="685" y="360" width="78" height="30" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <text x="724" y="374" text-anchor="middle" fill="#94a3b8" font-size="9">Inteligencias</text>
+        <text x="724" y="385" text-anchor="middle" fill="#64748b" font-size="8">múltiples (5)</text>
+
+        <!-- Levels -->
+        <line x1="795" y1="330" x2="795" y2="360" stroke="#334155" stroke-width="0.8" marker-end="url(#arr)"/>
+        <rect x="744" y="360" width="103" height="56" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+        <text x="795" y="375" text-anchor="middle" fill="#94a3b8" font-size="9" font-weight="700">Niveles</text>
+        <text x="795" y="388" text-anchor="middle" fill="#64748b" font-size="8">Iniciado → Explorador</text>
+        <text x="795" y="399" text-anchor="middle" fill="#64748b" font-size="8">Desarrollador → Avanzado</text>
+        <text x="795" y="410" text-anchor="middle" fill="#f59e0b" font-size="8" font-weight="600">→ Elite → Certificado</text>
+
+        <!-- Legend -->
+        <rect x="30" y="680" width="900" height="1" fill="#334155"/>
+        <text x="30" y="700" fill="#334155" font-size="10">─── Admin</text>
+        <rect x="90" y="694" width="20" height="1.5" fill="#f59e0b"/>
+        <text x="115" y="700" fill="#334155" font-size="10">─── Entrenador</text>
+        <rect x="200" y="694" width="20" height="1.5" fill="#22d3ee"/>
+        <text x="225" y="700" fill="#334155" font-size="10">─── Jugador</text>
+        <rect x="290" y="694" width="20" height="1.5" fill="#10b981"/>
+        <text x="315" y="700" fill="#475569" font-size="10">NeuroCracks MVP v2.1 · Mayo 2026</text>
+
+        <!-- Notifications system node -->
+        <rect x="370" y="460" width="220" height="42" rx="7" fill="#0f172a" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="480" y="476" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="700">🔔 Sistema de Notificaciones</text>
+        <text x="480" y="492" text-anchor="middle" fill="#64748b" font-size="9">Email · Push · Alertas en app</text>
+
+        <line x1="480" y1="330" x2="480" y2="460" stroke="#f59e0b" stroke-width="0.8" stroke-dasharray="4,3"/>
+
+        <!-- i18n node -->
+        <rect x="20" y="460" width="160" height="42" rx="7" fill="#0f172a" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="100" y="476" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="700">🌐 i18n / Idiomas</text>
+        <text x="100" y="492" text-anchor="middle" fill="#64748b" font-size="9">ES · Arquitectura i18n lista</text>
+
+        <!-- Payments gateway -->
+        <rect x="620" y="460" width="160" height="42" rx="7" fill="#0f172a" stroke="#ec4899" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="700" y="476" text-anchor="middle" fill="#f472b6" font-size="10" font-weight="700">💳 Pasarela de Pagos</text>
+        <text x="700" y="492" text-anchor="middle" fill="#64748b" font-size="9">Wompi / PayU Colombia</text>
+
+        <!-- Auth -->
+        <rect x="20" y="530" width="160" height="42" rx="7" fill="#0f172a" stroke="#6366f1" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="100" y="546" text-anchor="middle" fill="#818cf8" font-size="10" font-weight="700">🔐 Auth &amp; Seguridad</text>
+        <text x="100" y="562" text-anchor="middle" fill="#64748b" font-size="9">JWT · Roles · Permisos</text>
+
+        <!-- Storage -->
+        <rect x="200" y="530" width="160" height="42" rx="7" fill="#0f172a" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="280" y="546" text-anchor="middle" fill="#38bdf8" font-size="10" font-weight="700">🗃 Almacenamiento</text>
+        <text x="280" y="562" text-anchor="middle" fill="#64748b" font-size="9">Base activa + Histórica</text>
+
+        <!-- Certificates -->
+        <rect x="380" y="530" width="200" height="42" rx="7" fill="#0f172a" stroke="#10b981" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="480" y="546" text-anchor="middle" fill="#10b981" font-size="10" font-weight="700">🏅 Motor de Certificación</text>
+        <text x="480" y="562" text-anchor="middle" fill="#64748b" font-size="9">Auto · PDF · QR Validación</text>
+
+        <!-- Reports -->
+        <rect x="600" y="530" width="160" height="42" rx="7" fill="#0f172a" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="680" y="546" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="700">📈 Reportes &amp; Analytics</text>
+        <text x="680" y="562" text-anchor="middle" fill="#64748b" font-size="9">Scouting · Historial · KPIs</text>
+
+        <!-- Infra subtitle -->
+        <text x="30" y="616" fill="#475569" font-size="11" font-weight="700">SERVICIOS TRANSVERSALES (toda la plataforma)</text>
+        <rect x="20" y="440" width="918" height="155" rx="10" fill="none" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="6,4"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 15. FLUJO PRINCIPAL -->
+  <section id="flujo">
+    <div class="section-header">
+      <div class="section-num green">15</div>
+      <h2>Flujo Principal del Sistema</h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+      <div>
+        <h3>Flujo operativo estándar</h3>
+        <div class="flow">
+          <div class="flow-step"><div class="flow-left"><div class="flow-circle">1</div><div class="flow-line"></div></div><div class="flow-content"><div class="flow-title">Entrenador inicia sesión</div><div class="flow-desc">Autenticación con credenciales aprobadas</div></div></div>
+          <div class="flow-step"><div class="flow-left"><div class="flow-circle">2</div><div class="flow-line"></div></div><div class="flow-content"><div class="flow-title">Busca al jugador</div><div class="flow-desc">Por nombre, club o ID único</div></div></div>
+          <div class="flow-step"><div class="flow-left"><div class="flow-circle">3</div><div class="flow-line"></div></div><div class="flow-content"><div class="flow-title">Registra la sesión</div><div class="flow-desc">Fecha, tipo (deportiva / educativa), duración</div></div></div>
+          <div class="flow-step"><div class="flow-left"><div class="flow-circle">4</div><div class="flow-line"></div></div><div class="flow-content"><div class="flow-title">Evalúa métricas (1–10 cada una)</div><div class="flow-desc">5 deportivas + 5 formativas según sesión</div></div></div>
+          <div class="flow-step"><div class="flow-left"><div class="flow-circle">5</div><div class="flow-line"></div></div><div class="flow-content"><div class="flow-title">Sistema calcula score automático</div><div class="flow-desc">Actualiza Score Global, sub-scores y horas</div></div></div>
+          <div class="flow-step"><div class="flow-left"><div class="flow-circle">6</div><div class="flow-line"></div></div><div class="flow-content"><div class="flow-title">Jugador ve su progreso</div><div class="flow-desc">Dashboard actualizado en tiempo real</div></div></div>
+          <div class="flow-step"><div class="flow-left"><div class="flow-circle">7</div><div class="flow-line"></div></div><div class="flow-content"><div class="flow-title">Sistema registra historial</div><div class="flow-desc">Cada sesión queda permanentemente guardada</div></div></div>
+          <div class="flow-step"><div class="flow-left"><div class="flow-circle" style="border-color:var(--accent3);color:var(--accent3);">✓</div></div><div class="flow-content"><div class="flow-title" style="color:var(--accent3);">Jugador obtiene certificación</div><div class="flow-desc">Al completar 520 h + score ≥ 60</div></div></div>
+        </div>
+      </div>
+      <div>
+        <h3>Puntos críticos de UX</h3>
+        <table class="spec-table">
+          <thead><tr><th>Punto</th><th>Recomendación</th></tr></thead>
+          <tbody>
+            <tr><td>Calificación rápida</td><td>Sliders 1–10 por pantalla, no formularios largos. Máx. 3 min por evaluación</td></tr>
+            <tr><td>Feedback inmediato</td><td>Mostrar score nuevo al guardar. El jugador lo ve en segundos</td></tr>
+            <tr><td>Progreso visual</td><td>Barra de 520h prominente. El jugador debe sentir avance</td></tr>
+            <tr><td>Notificación de nivel</td><td>Animación / alerta cuando el jugador sube de nivel</td></tr>
+            <tr><td>Mobile first</td><td>Entrenadores usan el teléfono en cancha. La app debe funcionar perfectamente en móvil</td></tr>
+            <tr><td>Offline básico</td><td>Permitir registrar sesión sin conexión y sincronizar al reconectar</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16. STACK TÉCNICO -->
+  <section id="tech">
+    <div class="section-header">
+      <div class="section-num amber">16</div>
+      <h2>Stack Técnico Recomendado</h2>
+    </div>
+
+    <div class="tech-grid">
+      <div class="tech-item">
+        <div class="tech-layer">Frontend</div>
+        <div class="tech-name">React + Next.js</div>
+        <div class="tech-reason">SSR/SSG, i18n nativo, ecosistema maduro</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-layer">Mobile (futuro)</div>
+        <div class="tech-name">React Native / PWA</div>
+        <div class="tech-reason">Reutiliza código web. PWA como solución rápida MVP</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-layer">Backend</div>
+        <div class="tech-name">Node.js + Express / NestJS</div>
+        <div class="tech-reason">API REST o GraphQL. NestJS para escalar con roles</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-layer">Base de datos</div>
+        <div class="tech-name">PostgreSQL</div>
+        <div class="tech-reason">Relacional, ideal para scores, historial y reportes</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-layer">Autenticación</div>
+        <div class="tech-name">JWT + Roles RBAC</div>
+        <div class="tech-reason">3 roles bien definidos, permisos por ruta</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-layer">Almacenamiento</div>
+        <div class="tech-name">AWS S3 / Cloudflare R2</div>
+        <div class="tech-reason">Videos, imágenes de perfil, certificados PDF</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-layer">Video</div>
+        <div class="tech-name">YouTube embed / Vimeo</div>
+        <div class="tech-reason">Sin costo de CDN propio en MVP. Cambiar en Fase 2</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-layer">Pagos</div>
+        <div class="tech-name">Wompi (Colombia)</div>
+        <div class="tech-reason">SDK web, PSE + tarjeta + Nequi sin fricción</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-layer">Email</div>
+        <div class="tech-name">Resend / SendGrid</div>
+        <div class="tech-reason">Transaccional: bienvenida, certificados, alertas</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-layer">i18n</div>
+        <div class="tech-name">next-i18next / i18next</div>
+        <div class="tech-reason">Estándar de industria, preparado para expansión</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-layer">PDF Certificados</div>
+        <div class="tech-name">Puppeteer / React-PDF</div>
+        <div class="tech-reason">Generación dinámica con datos del jugador + QR</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-layer">Deploy</div>
+        <div class="tech-name">Vercel + Railway</div>
+        <div class="tech-reason">Frontend en Vercel, backend en Railway. Rápido y económico</div>
+      </div>
+    </div>
+
+    <div class="note green" style="margin-top:20px;">
+      <div class="note-title">Consideraciones MVP vs. producción</div>
+      <p>Para el MVP se puede iniciar con Supabase (PostgreSQL + Auth + Storage todo en uno) para reducir tiempo de desarrollo. Al escalar, separar cada servicio. El stack propuesto está diseñado para que esa migración sea incremental y no traumática.</p>
+    </div>
+  </section>
+
+  <!-- GAPS / PUNTOS ABIERTOS -->
+  <section>
+    <div class="section-header">
+      <div class="section-num red">!</div>
+      <h2>Puntos Abiertos — Decisiones Pendientes</h2>
+    </div>
+
+    <table class="spec-table">
+      <thead>
+        <tr><th>#</th><th>Pregunta abierta</th><th>Impacto</th><th>Prioridad</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>¿El pago es por sesión individual o suscripción mensual por jugador?</td><td>Modelo de facturación completo</td><td><span class="tag tag-red">Alta</span></td></tr>
+        <tr><td>2</td><td>¿Score mínimo para certificación? (sugerido: 60/100)</td><td>Valor del certificado</td><td><span class="tag tag-red">Alta</span></td></tr>
+        <tr><td>3</td><td>¿Se puede añadir contenido de video manualmente o solo desde admin?</td><td>Gestión de contenido</td><td><span class="tag tag-amber">Media</span></td></tr>
+        <tr><td>4</td><td>¿Las evaluaciones son solo del entrenador o el jugador también puede auto-evaluar algún módulo?</td><td>Flujo de datos del score</td><td><span class="tag tag-amber">Media</span></td></tr>
+        <tr><td>5</td><td>¿Los jugadores se registran solos o solo el entrenador los crea?</td><td>UX de onboarding</td><td><span class="tag tag-red">Alta</span></td></tr>
+        <tr><td>6</td><td>¿El ranking de PET es por club, ciudad o nacional?</td><td>Módulo ambiental</td><td><span class="tag tag-gray">Baja</span></td></tr>
+        <tr><td>7</td><td>¿Qué pasa si un jugador cambia de entrenador o club?</td><td>Integridad del historial</td><td><span class="tag tag-amber">Media</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <div>
+    <strong style="color:#fff;">NeuroCracks Platform</strong> — Especificación Funcional MVP v2.1<br>
+    Revisada y expandida · Mayo 2026 · Uso interno
+  </div>
+  <div style="text-align:right;">
+    Sistema integral deportivo, educativo y de certificación<br>
+    Score Global 0–100 · 520 horas · 3 roles · Colombia
   </div>
 </div>
-<footer class="doc-footer">
-  <div>NeuroCracks MVP</div>
-  <div>Publicado con GitHub Pages</div>
-</footer>
+
+<script>
+  // Animate score bars on load
+  document.querySelectorAll('.dash-bar-fill').forEach(bar => {
+    const w = bar.style.width;
+    bar.style.width = '0%';
+    setTimeout(() => { bar.style.transition = 'width 1s ease'; bar.style.width = w; }, 300);
+  });
+
+  // Donut progress
+  document.querySelectorAll('.dash-progress').forEach(el => {
+    const pct = el.style.getPropertyValue('--pct') || '43%';
+    const num = parseInt(pct);
+    el.style.background = `conic-gradient(#22d3ee ${num}%, rgba(255,255,255,0.07) 0%)`;
+  });
+</script>
 </body>
 </html>
